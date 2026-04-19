@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Clint Grant - Funding Architect</title>
+  <meta name="description" content="Answers to common questions about grant writing, pricing, process, and what to expect when working with Clint Grant.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .faq-hero-bg {
+      background: linear-gradient(135deg, rgba(9,10,15,0.9) 0%, rgba(20,25,38,0.85) 100%),
+                  url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .faq-question {
+      cursor: pointer;
+    }
+    .faq-question.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-icon {
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold text-white tracking-tight">Clint Grant</span>
+          <span class="text-xs uppercase tracking-widest text-accent-gold font-semibold">Funding Architect</span>
+        </a>
+        <nav id="nav-menu" class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="samples.html" class="nav-link">Samples</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="contact.html" class="hidden md:inline-block btn btn-primary">Book Consultation</a>
+        <button id="hamburger" class="md:hidden text-white focus:outline-none hamburger">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section class="faq-hero-bg py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="mb-4">Frequently Asked Questions</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Honest answers to the questions I hear most often.</p>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section class="py-16">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Question 1 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">1. Do you guarantee we will get the grant?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">No ethical grant writer can or should guarantee an award. Funding decisions are subjective and often based on factors outside our control (e.g., a funder's internal portfolio balance). <strong class="text-white">What I do guarantee:</strong> Your proposal will be professionally written, 100% compliant with guidelines, and submitted on time. My clients win because we stack the deck with quality.</p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">2. How long does the process take?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">For a standard foundation proposal, plan for a <strong class="text-white">minimum of 4-6 weeks</strong> from first strategy call to submission deadline. Rushed jobs (under 2 weeks) incur a rush fee and depend on your team's ability to provide data immediately. Federal grants require 8-12 weeks minimum.</p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">3. What do you need from me to get started?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">I need access to your financials (Audit or 990), your Board of Directors list with affiliations, and a 45-minute call with your Program Director. If you cannot provide these three things, we cannot start writing effectively.</p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">4. This seems expensive. Why shouldn't I just hire an intern?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">An intern costs you time (training, editing, re-writing). A professional costs money but saves you time and <strong class="text-white">earns you more money</strong>. If a $5,000 grant writing fee helps you secure a $100,000 grant, the ROI is 20x. An intern will likely help you secure $0 because they lack the strategic writing skills to score high on a rubric.</p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">5. Do you only write grants for U.S. organizations?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">I primarily work with U.S.-based 501c3 nonprofits and U.S.-registered small businesses. However, I work extensively with <strong class="text-white">Fiscally Sponsored</strong> projects and international NGOs applying for U.S. Government funding (USAID, State Dept).</p>
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">6. Who owns the grant content after it's written?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">You do. 100%. The narrative, the language, the data presentation—it's all yours. I encourage you to reuse the boilerplate language I craft for future applications. I'm building your capacity, not holding you hostage.</p>
+          </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">7. I have an emergency deadline. It's due in 5 days. Can you help?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">Possibly. This depends entirely on my current workload and the complexity of the application. A 5-day turnaround requires a premium rush fee (+50% of project total). Please email me immediately with "URGENT DEADLINE" in the subject line.</p>
+          </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">8. What happens if we get funded?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">We celebrate! Then we talk about the <strong class="text-white">Stewardship Report</strong>. This is the most overlooked part of the process. I can assist with drafting the required interim and final reports to ensure you remain in good standing for future funding cycles.</p>
+          </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">9. Do you work on commission (percentage of the grant)?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6"><strong class="text-white">No.</strong> I operate strictly on a Fee-for-Service basis. Grant Professionals Association (GPA) ethics strictly prohibit commission-based pay as it creates a conflict of interest and can jeopardize a nonprofit's tax-exempt status with the IRS.</p>
+          </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="glass-card mb-4">
+          <div class="faq-question p-6 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white">10. What types of grants do you NOT write?</h3>
+            <span class="faq-icon text-accent-gold text-2xl">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-gray-300 pb-6">I do not write grants for political campaigns, religious proselytizing activities (faith-based social services are fine), or individual scholarships (except institutional scholarships).</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-primary-dark to-accent-gold/10">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Still have questions?</h2>
+        <p class="text-gray-300 mb-8">Let's talk. I'm happy to address any concerns directly.</p>
+        <a href="contact.html" class="btn btn-primary btn-large">Contact Me →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html" class="text-2xl font-bold text-white">Clint Grant</a>
+          <p class="text-accent-gold text-sm uppercase tracking-wider mt-1">Funding Architect</p>
+          <p class="text-gray-400 text-sm mt-4">From Application to Acquisition.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Explore</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="about.html" class="hover:text-accent-gold">About</a></li>
+            <li><a href="services.html" class="hover:text-accent-gold">Services</a></li>
+            <li><a href="results.html" class="hover:text-accent-gold">Results</a></li>
+            <li><a href="samples.html" class="hover:text-accent-gold">Samples</a></li>
+            <li><a href="blog.html" class="hover:text-accent-gold">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="contact.html" class="hover:text-accent-gold">Contact</a></li>
+            <li><a href="faq.html" class="hover:text-accent-gold">FAQ</a></li>
+            <li><a href="privacy.html" class="hover:text-accent-gold">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-accent-gold">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Get in Touch</h4>
+          <p class="text-gray-400">Email: ajibola.qudus151@gmail.com</p>
+          <p class="text-gray-400">WhatsApp: +1 (555) 202-4590</p>
+          <a href="contact.html" class="btn btn-primary mt-4 inline-block">Book a Call</a>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Clint Grant | Funding Architect. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('.faq-icon');
+        const isOpen = answer.style.maxHeight;
+        
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = null);
+        document.querySelectorAll('.faq-icon').forEach(ic => ic.textContent = '+');
+        
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Clint Grant - Funding Architect</title>
+  <meta name="description" content="Get in touch with Clint Grant for expert grant writing, strategy, and consulting. Book a call or send a message.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-hero-bg {
+      background: linear-gradient(135deg, rgba(9,10,15,0.9) 0%, rgba(20,25,38,0.85) 100%),
+                  url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+    }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-whatsapp:hover { background: #128C7E; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold text-white tracking-tight">Clint Grant</span>
+          <span class="text-xs uppercase tracking-widest text-accent-gold font-semibold">Funding Architect</span>
+        </a>
+        <nav id="nav-menu" class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="samples.html" class="nav-link">Samples</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <a href="contact.html" class="hidden md:inline-block btn btn-primary">Book Consultation</a>
+        <button id="hamburger" class="md:hidden text-white focus:outline-none hamburger">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section class="contact-hero-bg py-16 text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1 class="mb-4">Let's Discuss What's Possible</h1>
+        <p class="text-xl text-gray-300">The first step is a no-pressure, strategic conversation.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Left: Info -->
+          <div class="glass-card p-8">
+            <h2 class="text-2xl font-bold mb-6">Connect With Me</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4"><div class="text-2xl"></div><div><h4 class="font-semibold">Direct Email</h4><p class="text-gray-400">For proposals and detailed inquiries.</p><a href="mailto:ajibola.qudus151@gmail.com" class="text-accent-gold">ajibola.qudus151@gmail.com</a></div></div>
+              <div class="flex gap-4"><div class="text-2xl"></div><div><h4 class="font-semibold">WhatsApp</h4><p class="text-gray-400">For urgent deadline discussions.</p><a href="https://wa.me/15552024590" target="_blank" class="btn btn-whatsapp inline-flex items-center gap-2 mt-2"> Message on WhatsApp</a></div></div>
+              <div class="flex gap-4"><div class="text-2xl"></div><div><h4 class="font-semibold">Schedule a Call</h4><p class="text-gray-400">Skip the email tag.</p><a href="#" class="btn btn-outline mt-2 inline-block" id="calendar-link">Book Your Discovery Call </a></div></div>
+              <div class="pt-4 border-t border-white/10"><h4 class="font-semibold mb-2">Office Hours</h4><p class="text-gray-400">Mon–Thu, 9AM–4PM EST.<br><em>(Deep writing on Fridays—no calls.)</em></p></div>
+            </div>
+          </div>
+          <!-- Right: Form -->
+          <div class="glass-card p-8">
+            <h2 class="text-2xl font-bold mb-2">Send a Message</h2>
+            <p class="text-gray-400 mb-6">I personally read every submission.</p>
+            <form id="contact-form" action="https://formsubmit.co/ajibola.qudus151@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Grant Inquiry from Website">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="false">
+              <input type="text" name="_honey" style="display:none">
+              <div id="form-success" class="hidden mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300"> Thank you! I'll respond within 24 hours.</div>
+              <div class="mb-4"><label>Full Name *</label><input type="text" name="name" required class="w-full"></div>
+              <div class="mb-4"><label>Work Email *</label><input type="email" name="email" required class="w-full"></div>
+              <div class="mb-4"><label>Organization</label><input type="text" name="organization" class="w-full"></div>
+              <div class="mb-4"><label>Budget Range</label><select name="budget" class="w-full"><option value="">Select</option><option>Under $25k</option><option>$25k–$100k</option><option>$100k–$500k</option><option>$500k+</option></select></div>
+              <div class="mb-4"><label>How can I help? *</label><textarea name="message" rows="4" required class="w-full"></textarea></div>
+              <button type="submit" class="btn btn-primary w-full">Send Message </button>
+              <p class="text-gray-500 text-sm mt-4 text-center">By submitting, you agree to my <a href="privacy.html" class="text-accent-gold">Privacy Policy</a>.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><a href="index.html" class="text-2xl font-bold text-white">Clint Grant</a><p class="text-accent-gold text-sm uppercase tracking-wider mt-1">Funding Architect</p><p class="text-gray-400 text-sm mt-4">From Application to Acquisition.</p></div>
+        <div><h4 class="text-white font-semibold mb-4">Explore</h4><ul class="space-y-2 text-gray-400"><li><a href="about.html" class="hover:text-accent-gold">About</a></li><li><a href="services.html" class="hover:text-accent-gold">Services</a></li><li><a href="results.html" class="hover:text-accent-gold">Results</a></li><li><a href="samples.html" class="hover:text-accent-gold">Samples</a></li><li><a href="blog.html" class="hover:text-accent-gold">Blog</a></li></ul></div>
+        <div><h4 class="text-white font-semibold mb-4">Support</h4><ul class="space-y-2 text-gray-400"><li><a href="contact.html" class="hover:text-accent-gold">Contact</a></li><li><a href="faq.html" class="hover:text-accent-gold">FAQ</a></li><li><a href="privacy.html" class="hover:text-accent-gold">Privacy Policy</a></li><li><a href="terms.html" class="hover:text-accent-gold">Terms of Service</a></li></ul></div>
+        <div><h4 class="text-white font-semibold mb-4">Get in Touch</h4><p class="text-gray-400">Email: ajibola.qudus151@gmail.com</p><p class="text-gray-400">WhatsApp: +1 (555) 202-4590</p><a href="contact.html" class="btn btn-primary mt-4 inline-block">Book a Call</a></div>
+      </div>
+      <div class="border-t border-white/5 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Clint Grant | Funding Architect. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const btn = form.querySelector('button[type="submit"]');
+        const successDiv = document.getElementById('form-success');
+        btn.innerHTML = 'Sending...'; btn.disabled = true;
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+          if (res.ok) { successDiv.classList.remove('hidden'); form.reset(); }
+        } catch (err) { alert('Error. Please email me directly.'); }
+        finally { btn.innerHTML = 'Send Message '; btn.disabled = false; }
+      });
+    }
+    document.getElementById('calendar-link').addEventListener('click', function(e) { e.preventDefault(); alert('Calendar link placeholder. Update with your Calendly URL.'); });
+  </script>
+</body>
+</html>

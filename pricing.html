@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Clint Grant - Funding Architect</title>
+  <meta name="description" content="Transparent, flat-rate grant writing packages. Premium investment for predictable funding outcomes.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .pricing-hero-bg {
+      background: linear-gradient(135deg, rgba(9,10,15,0.9) 0%, rgba(20,25,38,0.85) 100%),
+                  url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+    }
+    .pricing-card {
+      transition: all 0.3s ease;
+    }
+    .pricing-card.featured {
+      border: 1px solid var(--accent-gold);
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold text-white tracking-tight">Clint Grant</span>
+          <span class="text-xs uppercase tracking-widest text-accent-gold font-semibold">Funding Architect</span>
+        </a>
+        <nav id="nav-menu" class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="samples.html" class="nav-link">Samples</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="contact.html" class="hidden md:inline-block btn btn-primary">Book Consultation</a>
+        <button id="hamburger" class="md:hidden text-white focus:outline-none hamburger">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section class="pricing-hero-bg py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="mb-4">An Investment in Certainty</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Transparent, flat-rate pricing based on scope of work. No hourly billing surprises.</p>
+      </div>
+    </section>
+
+    <!-- PRICING PHILOSOPHY -->
+    <section class="py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="glass-card p-8">
+          <p class="text-gray-300 text-lg italic">"I am not the cheapest option. I am the best investment. My average client sees a <strong class="text-accent-gold">20x ROI</strong> on my fee within the first year. This is not an expense. It's a revenue driver."</p>
+          <p class="text-accent-gold-light mt-4">— Clint Grant</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Package A: Catalyst -->
+          <div class="glass-card p-8 pricing-card">
+            <h3 class="text-2xl font-bold mb-2">The Catalyst</h3>
+            <p class="text-accent-gold-light text-sm uppercase tracking-wide mb-4">Best for: Startups & Small Nonprofits</p>
+            <div class="text-4xl font-bold text-white mb-6">$1,800<span class="text-lg text-gray-400 font-normal"> starting</span></div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Grant Readiness Assessment</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>10-Custom Prospect Research List</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>1 Foundation Letter of Intent (LOI) Draft</span>
+              </li>
+              <li class="flex items-start gap-3 text-gray-500">
+                <span>✗</span>
+                <span>Full Proposal Writing</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline w-full text-center">Start with Catalyst →</a>
+          </div>
+
+          <!-- Package B: Foundation (Featured) -->
+          <div class="glass-card p-8 pricing-card featured border-2 border-accent-gold/50">
+            <div class="bg-accent-gold text-primary text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full inline-block mb-3">Most Popular</div>
+            <h3 class="text-2xl font-bold mb-2">The Foundation</h3>
+            <p class="text-accent-gold-light text-sm uppercase tracking-wide mb-4">Best for: Established Organizations</p>
+            <div class="text-4xl font-bold text-white mb-6">$4,500 – $7,500<span class="text-lg text-gray-400 font-normal"> /grant</span></div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Full Proposal Narrative (up to 15 pages)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Budget Review & Justification Drafting</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Logic Model Development</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Compliance Review & Formatting</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Submission Management</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary w-full text-center">Choose Foundation →</a>
+          </div>
+
+          <!-- Package C: Partnership -->
+          <div class="glass-card p-8 pricing-card">
+            <h3 class="text-2xl font-bold mb-2">The Partnership</h3>
+            <p class="text-accent-gold-light text-sm uppercase tracking-wide mb-4">Best for: Growing Orgs ($1M+ Budget)</p>
+            <div class="text-4xl font-bold text-white mb-6">$3,950<span class="text-lg text-gray-400 font-normal"> /month</span></div>
+            <p class="text-sm text-gray-400 -mt-4 mb-4">6-month minimum</p>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Up to 2 Full Proposals Monthly</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Unlimited Grant Research & Pipeline</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Bi-Weekly Strategy Calls</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Post-Award Reporting Support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-gold">✓</span>
+                <span>Priority Scheduling & Rush Support</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline w-full text-center">Inquire About Partnership →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ LINK -->
+    <section class="py-12 border-t border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-300 text-lg">Have questions about pricing or which package fits your needs?</p>
+        <a href="faq.html" class="text-accent-gold font-semibold hover:underline">Visit the FAQ →</a>
+        <span class="text-gray-500 mx-3">|</span>
+        <a href="contact.html" class="text-accent-gold font-semibold hover:underline">Schedule a Call →</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-primary-dark to-accent-gold/10">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to turn your mission into funded reality?</h2>
+        <p class="text-gray-300 mb-8">Book a Strategy Intensive and we'll map out the best path forward.</p>
+        <a href="contact.html" class="btn btn-primary btn-large">Book Your Strategy Call →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html" class="text-2xl font-bold text-white">Clint Grant</a>
+          <p class="text-accent-gold text-sm uppercase tracking-wider mt-1">Funding Architect</p>
+          <p class="text-gray-400 text-sm mt-4">From Application to Acquisition.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Explore</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="about.html" class="hover:text-accent-gold">About</a></li>
+            <li><a href="services.html" class="hover:text-accent-gold">Services</a></li>
+            <li><a href="results.html" class="hover:text-accent-gold">Results</a></li>
+            <li><a href="samples.html" class="hover:text-accent-gold">Samples</a></li>
+            <li><a href="blog.html" class="hover:text-accent-gold">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="contact.html" class="hover:text-accent-gold">Contact</a></li>
+            <li><a href="faq.html" class="hover:text-accent-gold">FAQ</a></li>
+            <li><a href="privacy.html" class="hover:text-accent-gold">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-accent-gold">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Get in Touch</h4>
+          <p class="text-gray-400">Email: ajibola.qudus151@gmail.com</p>
+          <p class="text-gray-400">WhatsApp: +1 (555) 202-4590</p>
+          <a href="contact.html" class="btn btn-primary mt-4 inline-block">Book a Call</a>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Clint Grant | Funding Architect. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

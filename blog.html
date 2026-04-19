@@ -3,95 +3,478 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grant Writing Blog | Insights & Funding Strategies</title>
-  <meta name="description" content="Expert articles on grant writing, prospect research, federal applications, and nonprofit funding strategies.">
+  <title>Blog | Clint Grant - Funding Architect</title>
+  <meta name="description" content="Expert insights on grant writing, funding strategy, and nonprofit growth.">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
+    .blog-hero-bg {
+      background: linear-gradient(135deg, rgba(9,10,15,0.9) 0%, rgba(20,25,38,0.85) 100%),
+                  url('https://images.pexels.com/photos/3768120/pexels-photo-3768120.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
     }
-    .blog-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
+    
+    /* Article Card */
+    .article-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s ease;
     }
-    .blog-content {
-      padding: 1.5rem;
+    
+    .article-card:hover {
+      border-color: rgba(212, 175, 55, 0.3);
     }
-    .blog-title {
-      font-size: 1.3rem;
+    
+    /* Article Header - Always Visible */
+    .article-header {
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .article-category {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 50px;
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+    }
+    
+    .article-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .article-title-text {
+      flex: 1;
+    }
+    
+    .article-excerpt {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
       margin-bottom: 0.5rem;
     }
-    .blog-summary {
-      color: var(--gray-600);
-      margin-bottom: 1rem;
+    
+    /* Dropdown Indicator */
+    .dropdown-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-gold);
+      font-size: 0.875rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-arrow {
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .article-card.expanded .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .dropdown-text {
+      display: inline-block;
+    }
+    
+    .article-card.expanded .dropdown-text {
+      content: "Read Less";
+    }
+    
+    /* Article Content - Hidden by Default */
+    .article-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-top: 1px solid transparent;
+    }
+    
+    .article-card.expanded .article-content {
+      max-height: 2000px;
+      border-top-color: var(--glass-border);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    
+    .article-content-inner {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    .article-content-inner h3 {
+      color: var(--accent-gold-light);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .article-content-inner h3:first-of-type {
+      margin-top: 0;
+    }
+    
+    .article-content-inner p {
+      margin-bottom: 1.25rem;
+    }
+    
+    .article-content-inner ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content-inner li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-content-inner strong {
+      color: var(--text-primary);
+    }
+    
+    /* Mobile Adjustments */
+    @media (max-width: 640px) {
+      .article-card {
+        padding: 1.25rem;
+      }
+      
+      .article-title {
+        font-size: 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .dropdown-indicator {
+        align-self: flex-start;
+      }
     }
   </style>
 </head>
-<body>
-  <header class="header"><!-- Same header --></header>
+<body class="antialiased">
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>The Funding Vault</h1>
-        <p class="hero-sub">Insights, strategies, and insider knowledge to strengthen your grants program.</p>
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold text-white tracking-tight">Clint Grant</span>
+          <span class="text-xs uppercase tracking-widest text-accent-gold font-semibold">Funding Architect</span>
+        </a>
+        <nav id="nav-menu" class="nav-menu hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="samples.html" class="nav-link">Samples</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="contact.html" class="hidden md:inline-block btn btn-primary">Book Consultation</a>
+        <button id="hamburger" class="hamburger md:hidden">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section class="blog-hero-bg py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="mb-4">The Funding Vault</h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Insights, strategies, and insider knowledge to strengthen your grants program.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container blog-grid">
-        <article class="blog-card">
-          <div class="blog-content">
-            <h3 class="blog-title">The 7 Deadly Sins of the Executive Summary</h3>
-            <p class="blog-summary">90% of reviewers decide to keep reading based on the first page. Learn the structural mistakes that scream "amateur" and the framework that screams "fund me."</p>
-            <a href="#" class="link-arrow">Read More →</a>
+    <!-- BLOG ARTICLES STACK -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Article 1 -->
+        <div class="article-card" id="article1">
+          <div class="article-header">
+            <div class="article-category">📝 Grant Writing Fundamentals</div>
+            <div class="article-title">
+              <span class="article-title-text">The 7 Deadly Sins of the Executive Summary (And How to Fix Them)</span>
+              <span class="dropdown-indicator">
+                <span class="dropdown-text">Read More</span>
+                <span class="dropdown-arrow">▼</span>
+              </span>
+            </div>
+            <div class="article-excerpt">90% of reviewers decide to keep reading based on the first page. Learn the structural mistakes that scream "amateur" and the framework that screams "fund me."</div>
           </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-content">
-            <h3 class="blog-title">SBIR vs. STTR: Which Non-Dilutive Funding Path?</h3>
-            <p class="blog-summary">A no-nonsense breakdown of the differences, deadlines, and commercialization requirements for tech founders.</p>
-            <a href="#" class="link-arrow">Read More →</a>
+          <div class="article-content">
+            <div class="article-content-inner">
+              <p>The Executive Summary is the most valuable real estate in your grant proposal. Yet most organizations treat it as an afterthought—a quick cut-and-paste from the project description. That's a costly mistake.</p>
+              
+              <h3>Sin #1: Starting with Your Organization's History</h3>
+              <p>Funders don't care that you were founded in 1987 by a passionate group of volunteers—at least not yet. Lead with the problem you're solving and the impact you'll make. Hook them first; credential yourself second.</p>
+              
+              <h3>Sin #2: Burying the Dollar Amount</h3>
+              <p>The ask should appear in the first or second paragraph. Make it easy for the reviewer to know exactly what you need and why.</p>
+              
+              <h3>Sin #3: Using Jargon and Acronyms</h3>
+              <p>If your summary reads like alphabet soup, you've already lost. Write for an intelligent generalist, not a specialist in your field.</p>
+              
+              <h3>Sin #4: Forgetting the "So What?" Test</h3>
+              <p>Every sentence should answer: "Why does this matter?" If you're describing a program activity without tying it to an outcome, cut it.</p>
+              
+              <h3>Sin #5: Ignoring the Funder's Language</h3>
+              <p>Mirror the terminology from the RFP or foundation's website. If they talk about "health equity," use that phrase—not "reducing disparities."</p>
+              
+              <h3>Sin #6: Overpromising</h3>
+              <p>Claiming you'll "end homelessness" in 12 months destroys credibility. Be ambitious but grounded.</p>
+              
+              <h3>Sin #7: No Clear Call to Action</h3>
+              <p>The summary should leave the reviewer thinking: "I need to read the rest of this." End with a compelling transition into the full proposal.</p>
+            </div>
           </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-content">
-            <h3 class="blog-title">Logic Models Don't Have to Be Boring</h3>
-            <p class="blog-summary">How to create a logic model that actually helps you run your program better, not just one that checks a grant requirement box.</p>
-            <a href="#" class="link-arrow">Read More →</a>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card" id="article2">
+          <div class="article-header">
+            <div class="article-category">🚀 Startup Funding</div>
+            <div class="article-title">
+              <span class="article-title-text">SBIR vs. STTR: Which Non-Dilutive Funding Path is Right for Your Startup?</span>
+              <span class="dropdown-indicator">
+                <span class="dropdown-text">Read More</span>
+                <span class="dropdown-arrow">▼</span>
+              </span>
+            </div>
+            <div class="article-excerpt">A no-nonsense breakdown of the differences, deadlines, and commercialization requirements for tech founders.</div>
           </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-content">
-            <h3 class="blog-title">The Post-Submission Protocol</h3>
-            <p class="blog-summary">5 steps that turn 'Declined' into 'Funded' next time. Here's the exact email script to use.</p>
-            <a href="#" class="link-arrow">Read More →</a>
+          <div class="article-content">
+            <div class="article-content-inner">
+              <p>If you're a deep tech founder, you've probably heard about SBIR and STTR as sources of non-dilutive funding. But which one fits your startup? Here's the straightforward comparison.</p>
+              
+              <h3>SBIR (Small Business Innovation Research)</h3>
+              <p><strong>Best for:</strong> Startups with strong internal R&D capabilities. You can subcontract up to 33% of Phase I work, but the primary research must be done in-house.</p>
+              
+              <h3>STTR (Small Business Technology Transfer)</h3>
+              <p><strong>Best for:</strong> Startups collaborating with a research institution (university, federal lab). Requires a formal partnership where the research institution performs at least 30% of the work.</p>
+              
+              <h3>Key Decision Factors</h3>
+              <ul>
+                <li><strong>Do you have a university partner?</strong> If yes, STTR opens doors. If no, SBIR is your path.</li>
+                <li><strong>Technology readiness:</strong> Both require proof-of-concept data, but STTR often expects more foundational research involvement.</li>
+                <li><strong>Agency preference:</strong> NSF and NIH offer both. DoD heavily favors SBIR. Check the specific solicitation.</li>
+              </ul>
+              
+              <h3>Phase I vs Phase II</h3>
+              <p>Phase I is feasibility (typically $50k-$275k over 6-12 months). Phase II is development ($750k-$1.7M over 2 years). You cannot skip Phase I for most agencies.</p>
+              
+              <h3>Commercialization Plan: The Make-or-Break Section</h3>
+              <p>Both programs demand a credible path to market. Your plan must address market size, competition, IP strategy, and revenue model—even at Phase I.</p>
+            </div>
           </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-content">
-            <h3 class="blog-title">How to Read a 990-PF Like a Forensic Accountant</h3>
-            <p class="blog-summary">Forget the foundation website. The 990-PF tells you exactly who they fund and who the gatekeeper is.</p>
-            <a href="#" class="link-arrow">Read More →</a>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card" id="article3">
+          <div class="article-header">
+            <div class="article-category">📊 Program Design</div>
+            <div class="article-title">
+              <span class="article-title-text">Logic Models Don't Have to Be Boring: A Visual Guide for Program Staff</span>
+              <span class="dropdown-indicator">
+                <span class="dropdown-text">Read More</span>
+                <span class="dropdown-arrow">▼</span>
+              </span>
+            </div>
+            <div class="article-excerpt">How to create a logic model that actually helps you run your program better, not just one that checks a grant requirement box.</div>
           </div>
-        </article>
+          <div class="article-content">
+            <div class="article-content-inner">
+              <p>Most program staff groan when they hear "logic model." They picture a dry, academic exercise that exists only to satisfy a grant reviewer. But a well-constructed logic model is a strategic management tool—and it can be engaging.</p>
+              
+              <h3>Start with Outcomes, Not Activities</h3>
+              <p>Reverse-engineer your model. What change do you want to see? Define your long-term impact first, then work backward to identify the outputs and activities that will get you there.</p>
+              
+              <h3>Make It Visual</h3>
+              <p>Ditch the Word table. Use colors, icons, and flow charts. Tools like Miro or Lucidchart turn a static document into a living map your team will actually reference.</p>
+              
+              <h3>Involve the Whole Team</h3>
+              <p>Facilitate a 90-minute session with program staff, finance, and even a board member. When everyone contributes, the model reflects reality—not just the grant writer's assumptions.</p>
+              
+              <h3>Connect to Data</h3>
+              <p>For each output and outcome, note exactly how you'll measure it. This transforms the logic model into an evaluation framework.</p>
+              
+              <h3>Update It Annually</h3>
+              <p>Programs evolve. Your logic model should too. Treat it as a living document reviewed at each strategic planning retreat.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card" id="article4">
+          <div class="article-header">
+            <div class="article-category">📬 Grant Stewardship</div>
+            <div class="article-title">
+              <span class="article-title-text">The Post-Submission Protocol: 5 Steps That Turn 'Declined' into 'Funded' Next Time</span>
+              <span class="dropdown-indicator">
+                <span class="dropdown-text">Read More</span>
+                <span class="dropdown-arrow">▼</span>
+              </span>
+            </div>
+            <div class="article-excerpt">Most people give up after a rejection. Smart organizations use the feedback to build a relationship. Here's the exact email script to use.</div>
+          </div>
+          <div class="article-content">
+            <div class="article-content-inner">
+              <p>You got the email: "We regret to inform you..." Most people delete it and move on. That's leaving money on the table. Here's how to turn a no into a future yes.</p>
+              
+              <h3>Step 1: Wait 48 Hours (Then Send This Email)</h3>
+              <p><strong>Subject:</strong> Thank you – [Grant Name] Application<br>
+              "Dear [Program Officer Name], Thank you for the opportunity to apply for [Grant Name]. While we're disappointed not to be selected, we remain deeply committed to [mission]. If your schedule permits, we would be grateful for any brief feedback on how we might strengthen a future application. We value the Foundation's perspective and want to ensure we're putting our best foot forward."</p>
+              
+              <h3>Step 2: Actually Listen to the Feedback</h3>
+              <p>If the funder says your budget wasn't competitive, don't argue. Ask clarifying questions: "Would a lower request amount have been more appropriate, or was it the allocation across line items?"</p>
+              
+              <h3>Step 3: Implement and Document Changes</h3>
+              <p>Create a simple spreadsheet tracking funder feedback and the actions you took. When you reapply, reference this explicitly: "Based on your feedback last cycle, we have strengthened our evaluation plan by..."</p>
+              
+              <h3>Step 4: Stay on Their Radar (Gently)</h3>
+              <p>Send a brief update 6 months later: a new program milestone, a relevant publication, or an award you received. Keep it short and non-ask.</p>
+              
+              <h3>Step 5: Reapply Strategically</h3>
+              <p>Don't just resubmit the same proposal. Your new application should feel like a response to a conversation—because it is.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card" id="article5">
+          <div class="article-header">
+            <div class="article-category">🔎 Prospect Research</div>
+            <div class="article-title">
+              <span class="article-title-text">How to Read a 990-PF Like a Forensic Accountant</span>
+              <span class="dropdown-indicator">
+                <span class="dropdown-text">Read More</span>
+                <span class="dropdown-arrow">▼</span>
+              </span>
+            </div>
+            <div class="article-excerpt">Forget the foundation website. The 990-PF tax return tells you exactly who they fund, how much they give, and who the gatekeeper is.</div>
+          </div>
+          <div class="article-content">
+            <div class="article-content-inner">
+              <p>Private foundations are required to file Form 990-PF annually. This public document is a goldmine of actionable intelligence—if you know where to look.</p>
+              
+              <h3>Section I – Summary: The Quick Snapshot</h3>
+              <p>Look at Line 25: "Contributions, gifts, grants paid." This is the total giving for the year. Compare it to previous years to see if their grantmaking is growing or shrinking.</p>
+              
+              <h3>Part XV – Supplementary Information: The Real Gold</h3>
+              <p>Line 3 lists every grant over $5,000 made during the year. Scan this list for organizations similar to yours in size, geography, or mission. If you see five grants to organizations just like yours, you've found a strong prospect. If you see only grants to Ivy League universities, move on.</p>
+              
+              <h3>Identifying the Gatekeeper</h3>
+              <p>Look at the "Officers, Directors, Trustees" section. Note the names. Often, the program officer isn't listed, but you can search LinkedIn for "[Foundation Name] Program Officer."</p>
+              
+              <h3>Geographic Restrictions</h3>
+              <p>Check the "Limitations on Awards" section. Many foundations state a geographic preference here that isn't on their website.</p>
+              
+              <h3>The Takeaway</h3>
+              <p>Spend 30 minutes with a 990-PF before writing a single word. It will save you dozens of hours applying to foundations that were never going to fund you.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="cta-banner">
-      <div class="container text-center">
-        <h2>Get funding insights delivered to your inbox</h2>
-        <a href="lead-magnet.html" class="btn btn-primary btn-large">Subscribe →</a>
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-primary-dark to-accent-gold/10">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to put these insights into action?</h2>
+        <p class="text-gray-300 mb-8">Let's discuss how we can apply these strategies to your specific funding goals.</p>
+        <a href="contact.html" class="btn btn-primary btn-large">Book Your Strategy Call →</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><!-- Same footer --></footer>
+  <!-- FOOTER -->
+  <footer class="footer py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html" class="text-2xl font-bold text-white">Clint Grant</a>
+          <p class="text-accent-gold text-sm uppercase tracking-wider mt-1">Funding Architect</p>
+          <p class="text-gray-400 text-sm mt-4">From Application to Acquisition.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Explore</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="about.html" class="hover:text-accent-gold">About</a></li>
+            <li><a href="services.html" class="hover:text-accent-gold">Services</a></li>
+            <li><a href="results.html" class="hover:text-accent-gold">Results</a></li>
+            <li><a href="samples.html" class="hover:text-accent-gold">Samples</a></li>
+            <li><a href="blog.html" class="hover:text-accent-gold">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="contact.html" class="hover:text-accent-gold">Contact</a></li>
+            <li><a href="faq.html" class="hover:text-accent-gold">FAQ</a></li>
+            <li><a href="privacy.html" class="hover:text-accent-gold">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-accent-gold">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Get in Touch</h4>
+          <p class="text-gray-400">Email: ajibola.qudus151@gmail.com</p>
+          <p class="text-gray-400">WhatsApp: +1 (555) 202-4590</p>
+          <a href="contact.html" class="btn btn-primary mt-4 inline-block">Book a Call</a>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Clint Grant | Funding Architect. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="js/main.js"></script>
+  
+  <!-- BLOG ACCORDION SCRIPT -->
+  <script>
+  (function() {
+    'use strict';
+    
+    document.querySelectorAll('.article-card').forEach(function(card) {
+      const header = card.querySelector('.article-header');
+      const dropdownText = card.querySelector('.dropdown-text');
+      
+      header.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Toggle expanded class on this card only
+        card.classList.toggle('expanded');
+        
+        // Update text
+        if (card.classList.contains('expanded')) {
+          dropdownText.textContent = 'Read Less';
+        } else {
+          dropdownText.textContent = 'Read More';
+        }
+      });
+    });
+    
+  })();
+  </script>
 </body>
-</html>
+  </html>
